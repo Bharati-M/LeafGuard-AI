@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CropGuard AI - Leaf Disease Diagnostics & Agronomy Portal</title>
+    
+    <!-- Google Fonts: Outfit (Premium Sans-serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <!-- Background Animated Floating Leaves -->
+    <div class="leaf-container">
+        <div class="leaf leaf-1">🍃</div>
+        <div class="leaf leaf-2">🍂</div>
+        <div class="leaf leaf-3">🌿</div>
+        <div class="leaf leaf-4">☘️</div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="app-header">
+        <div class="brand">
+            <span class="brand-icon"><i data-lucide="sprout"></i></span>
+            <span class="brand-text">CropGuard <span class="accent-text">AI</span></span>
+        </div>
+        <nav class="nav-menu">
+            <button class="nav-btn active" data-target="home-view">
+                <i data-lucide="home"></i> Home
+            </button>
+            <button class="nav-btn" data-target="detector-view" id="launch-detector-btn">
+                <i data-lucide="scan-eye"></i> Disease Detector
+            </button>
+            <button class="nav-btn" data-target="hub-view">
+                <i data-lucide="database"></i> Smart Crop Hub
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <main class="app-main">
+        
+        <!-- =========================================================
+             HOME VIEW
+             ========================================================= -->
+        <section id="home-view" class="view-section active">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <span class="hero-badge"><i data-lucide="sparkles"></i> Advanced Agricultural Intelligence</span>
+                    <h1 class="hero-title">Intelligent Crop Health <br><span class="gradient-text">Diagnostics</span></h1>
+                    <p class="hero-description">
+                        Instantly diagnose plant leaf diseases and weed infestations using advanced Neural Networks. Get precision organic and chemical treatment guidelines, printable reports, and accurate sprayer calibration calculators.
+                    </p>
+                    <div class="hero-actions">
+                        <button class="primary-btn" onclick="switchView('detector-view')">
+                            Launch Diagnostics <i data-lucide="arrow-right"></i>
+                        </button>
+                        <button class="secondary-btn" onclick="switchView('hub-view')">
+                            Explore Crop Hub <i data-lucide="book-open"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-dashboard">
+                    <div class="dashboard-mockup">
+                        <div class="mockup-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span class="mockup-title">AI Engine Analysis</span>
+                        </div>
+                        <div class="mockup-body">
+                            <div class="mockup-chart">
+                                <div class="chart-circle">
+                                    <span class="chart-value">98.4%</span>
+                                    <span class="chart-label">Accuracy Rate</span>
+                                </div>
+                            </div>
+                            <div class="mockup-stats">
+                                <div class="stat-row">
+                                    <span class="stat-label">Model Engine:</span>
+                                    <span class="stat-val font-code">Custom CNN Keras</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">Response Latency:</span>
+                                    <span class="stat-val text-green"><i data-lucide="zap"></i> &lt; 1.5s</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">Image Pre-Validation:</span>
+                                    <span class="stat-val text-blue"><i data-lucide="shield-check"></i> Active</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Operational Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon"><i data-lucide="check-circle-2"></i></div>
+                    <div class="stat-info">
+                        <h3 class="stat-number">98.4%</h3>
+                        <p class="stat-desc">F1-Score Diagnostics Accuracy</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i data-lucide="clock"></i></div>
+                    <div class="stat-info">
+                        <h3 class="stat-number">Real-Time</h3>
+                        <p class="stat-desc">Sub-Second Processing Latency</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i data-lucide="leaf"></i></div>
+                    <div class="stat-info">
+                        <h3 class="stat-number">9 Classes</h3>
+                        <p class="stat-desc">Crops, Healthy Tissues & Weeds</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i data-lucide="activity"></i></div>
+                    <div class="stat-info">
+                        <h3 class="stat-number">Active</h3>
+                        <p class="stat-desc">MobileNetV2 Pre-Validator</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Section -->
+            <div class="features-section">
+                <h2 class="section-title">Integrated Farm Protection Suite</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i data-lucide="scan"></i></div>
+                        <h3 class="feature-title">Advanced Diagnostics</h3>
+                        <p class="feature-description">
+                            Detect scab, bacterial lesions, blights, and grassy or broadleaf weeds instantly from leaf photography.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i data-lucide="shield-alert"></i></div>
+                        <h3 class="feature-title">Anti-False Validation</h3>
+                        <p class="feature-description">
+                            Advanced dual-step validation filters out non-leaf objects (keyboards, pets, vehicles) before analyzing.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i data-lucide="file-text"></i></div>
+                        <h3 class="feature-title">Printable Diagnostics Reports</h3>
+                        <p class="feature-description">
+                            Compile professional field reports detailing identified symptoms, causes, and step-by-step treatment.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i data-lucide="calculator"></i></div>
+                        <h3 class="feature-title">Agronomy Dosage Calculator</h3>
+                        <p class="feature-description">
+                            Calculate precise chemical/organic product quantities and water volume tailored exactly to your acreage.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             DETECTOR VIEW
+             ========================================================= -->
+        <section id="detector-view" class="view-section">
+            <div class="view-header">
+                <h2 class="section-title"><i data-lucide="scan-face"></i> Neural Tissue Scanner</h2>
+                <p class="section-subtitle">Upload a clear photo of a plant leaf to start diagnostic scanning.</p>
+            </div>
+
+            <div class="detector-layout">
+                <!-- Dropzone Card -->
+                <div class="card dropzone-card">
+                    <div class="dropzone" id="dropzone">
+                        <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                        <div class="dropzone-content" id="dropzone-prompt">
+                            <div class="upload-icon"><i data-lucide="image-plus"></i></div>
+                            <h3>Drag & Drop Leaf Photo Here</h3>
+                            <p>or click to browse local files</p>
+                            <span class="file-limits">Supports JPG, JPEG, PNG (max 10MB)</span>
+                        </div>
+                        <div class="dropzone-preview" id="dropzone-preview" style="display: none;">
+                            <img id="imagePreview" src="" alt="Uploaded Leaf Preview">
+                            <button class="remove-btn" id="removeFileBtn"><i data-lucide="trash-2"></i> Remove</button>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="primary-btn full-width" id="scanBtn" disabled>
+                            <i data-lucide="cpu"></i> Analyze Leaf Tissue
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Analysis / Loader / Results Panel -->
+                <div class="card details-card" id="results-panel">
+                    
+                    <!-- Empty State -->
+                    <div class="panel-empty-state" id="panel-empty">
+                        <div class="empty-icon"><i data-lucide="activity"></i></div>
+                        <h3>Diagnostics Engine Standby</h3>
+                        <p>Upload and run a leaf analysis to view neural classification, causes, and treatment plans.</p>
+                    </div>
+
+                    <!-- Loader State -->
+                    <div class="panel-loader-state" id="panel-loader" style="display: none;">
+                        <div class="spinner">
+                            <div class="double-bounce1"></div>
+                            <div class="double-bounce2"></div>
+                        </div>
+                        <h3>Scanning Leaf Structure</h3>
+                        <p id="loader-status">Pre-processing tissues & validating leaf morphology...</p>
+                    </div>
+
+                    <!-- Warning State (Invalid Leaf) -->
+                    <div class="panel-warning-state" id="panel-warning" style="display: none;">
+                        <div class="warning-badge">
+                            <i data-lucide="alert-triangle"></i>
+                        </div>
+                        <h2 class="warning-title">Invalid Image Detected</h2>
+                        <p class="warning-msg" id="warning-message">Add leaf image: it's not valid.</p>
+                        <div class="warning-tips">
+                            <h4>💡 Scanning Photography Tips:</h4>
+                            <ul>
+                                <li>Make sure the leaf is in clear focus and well lit.</li>
+                                <li>Avoid background clutter (hands, shoes, equipment).</li>
+                                <li>Center a single leaf on a clean, solid background.</li>
+                                <li>Ensure the leaf is flat and fills at least 50% of the frame.</li>
+                            </ul>
+                        </div>
+                        <button class="secondary-btn margin-top" onclick="resetDetector()"><i data-lucide="rotate-ccw"></i> Try Again</button>
+                    </div>
+
+                    <!-- Results State -->
+                    <div class="panel-results-state" id="panel-results" style="display: none;">
+                        
+                        <!-- Prediction Main Header -->
+                        <div class="result-header">
+                            <div class="result-info">
+                                <div class="badge-container">
+                                    <span class="status-badge" id="res-health-status">Healthy</span>
+                                    <span class="severity-badge" id="res-severity">Low Severity</span>
+                                </div>
+                                <h2 class="result-title" id="res-disease-name">Tomato___Bacterial_spot</h2>
+                                <p class="result-pathogen">Pathogen: <span id="res-pathogen" class="font-code">Xanthomonas</span></p>
+                            </div>
+                            <div class="confidence-gauge">
+                                <div class="gauge-ring">
+                                    <span class="gauge-value" id="res-confidence">98%</span>
+                                    <span class="gauge-label">Confidence</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Grid Results Detail -->
+                        <div class="result-tabs">
+                            <button class="tab-btn active" data-sub="tab-profile">Diagnosis Profile</button>
+                            <button class="tab-btn" data-sub="tab-management">Management Plan</button>
+                        </div>
+
+                        <div class="tab-content active" id="tab-profile">
+                            <div class="info-grid">
+                                <div class="info-box">
+                                    <h3><i data-lucide="stethoscope" class="text-red"></i> Primary Symptoms</h3>
+                                    <ul class="bullet-list" id="res-symptoms">
+                                        <li>Lesions appearing on leaves.</li>
+                                    </ul>
+                                </div>
+                                <div class="info-box">
+                                    <h3><i data-lucide="help-circle" class="text-yellow"></i> Why It Occurred (Causes)</h3>
+                                    <ul class="bullet-list" id="res-causes">
+                                        <li>High humidity and rain.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="tab-management">
+                            <div class="info-grid">
+                                <div class="info-box">
+                                    <h3><i data-lucide="shield-check" class="text-green"></i> Prevention Strategies</h3>
+                                    <ul class="bullet-list" id="res-prevention">
+                                        <li>Maintain crop rotations.</li>
+                                    </ul>
+                                </div>
+                                <div class="info-box">
+                                    <h3><i data-lucide="syringe" class="text-blue"></i> Recommended Treatment</h3>
+                                    <ul class="bullet-list" id="res-treatment">
+                                        <li>Apply copper fungicides.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Agronomy Tips Highlight -->
+                        <div class="tip-banner">
+                            <div class="tip-icon"><i data-lucide="lightbulb"></i></div>
+                            <div class="tip-content">
+                                <strong>Professional Farming Tip:</strong>
+                                <p id="res-professional-tip">Avoid working in wet fields.</p>
+                            </div>
+                        </div>
+
+                        <!-- Actions and Download Report -->
+                        <div class="result-actions">
+                            <button class="primary-btn" id="downloadReportBtn">
+                                <i data-lucide="download"></i> Download Field Report
+                            </button>
+                            <button class="secondary-btn" id="printReportBtn">
+                                <i data-lucide="printer"></i> Print Diagnosis
+                            </button>
+                            <button class="secondary-btn bg-dark" onclick="resetDetector()">
+                                <i data-lucide="refresh-cw"></i> New Scan
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             SMART CROP HUB VIEW
+             ========================================================= -->
+        <section id="hub-view" class="view-section">
+            <div class="view-header">
+                <h2 class="section-title"><i data-lucide="layers"></i> Smart Crop Hub</h2>
+                <p class="section-subtitle">Access our integrated agronomic encyclopedia and interactive chemical dosage calculators.</p>
+            </div>
+
+            <!-- Hub Sub Navigation -->
+            <div class="hub-tabs">
+                <button class="hub-tab-btn active" data-sub="encyclopedia-sub">
+                    <i data-lucide="book-open"></i> Crop Encyclopedia
+                </button>
+                <button class="hub-tab-btn" data-sub="calculator-sub">
+                    <i data-lucide="calculator"></i> Dosage & Sprayer Calculator
+                </button>
+            </div>
+
+            <!-- ENCYCLOPEDIA SUB SECTION -->
+            <div class="hub-sub-content active" id="encyclopedia-sub">
+                <div class="search-header">
+                    <div class="search-box">
+                        <i data-lucide="search"></i>
+                        <input type="text" id="encyclopedia-search" placeholder="Search crops, weeds, or diseases (e.g. Tomato, Scab, Weed)...">
+                    </div>
+                </div>
+
+                <div class="encyclopedia-grid" id="encyclopedia-grid">
+                    <!-- Loaded dynamically via JS -->
+                </div>
+            </div>
+
+            <!-- CALCULATOR SUB SECTION -->
+            <div class="hub-sub-content" id="calculator-sub">
+                <div class="calculator-layout">
+                    
+                    <!-- Calculator Inputs -->
+                    <div class="card cal-inputs-card">
+                        <div class="card-header">
+                            <h3><i data-lucide="sliders"></i> Spray Calibration Inputs</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="dosage-form">
+                                <div class="form-group">
+                                    <label for="cal-crop"><i data-lucide="leaf"></i> Target Crop & Condition</label>
+                                    <select id="cal-crop">
+                                        <!-- Loaded dynamically via JS -->
+                                    </select>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group half">
+                                        <label for="cal-area"><i data-lucide="maximize"></i> Field Area Size</label>
+                                        <input type="number" id="cal-area" value="1.0" min="0.1" step="0.1">
+                                    </div>
+                                    <div class="form-group half">
+                                        <label for="cal-unit"><i data-lucide="settings"></i> Area Unit</label>
+                                        <select id="cal-unit">
+                                            <option value="acres">Acres</option>
+                                            <option value="hectares">Hectares</option>
+                                            <option value="sq_meters">Sq. Meters</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cal-method"><i data-lucide="shield-alert"></i> Application Sprayer Method</label>
+                                    <select id="cal-method">
+                                        <option value="knapsack">Manual Knapsack Sprayer (15-20L capacity)</option>
+                                        <option value="tractor">Tractor Boom Sprayer (Medium volume)</option>
+                                        <option value="drone">Agricultural Spraying Drone (Ultra-low volume)</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Calculator Outputs -->
+                    <div class="card cal-outputs-card">
+                        <div class="card-header">
+                            <h3><i data-lucide="gauge"></i> Calibrated Diagnostics</h3>
+                        </div>
+                        <div class="card-body">
+                            
+                            <div class="cal-output-grid">
+                                <div class="cal-out-card">
+                                    <span class="cal-out-icon"><i data-lucide="droplet" class="text-blue"></i></span>
+                                    <div class="cal-out-info">
+                                        <span class="cal-out-label">Required Water Volume</span>
+                                        <h2 class="cal-out-value" id="cal-out-water">400 L</h2>
+                                    </div>
+                                </div>
+                                <div class="cal-out-card">
+                                    <span class="cal-out-icon"><i data-lucide="flask-conical" class="text-green"></i></span>
+                                    <div class="cal-out-info">
+                                        <span class="cal-out-label" id="cal-out-chem-label">Required Chemical</span>
+                                        <h2 class="cal-out-value" id="cal-out-chem">1.0 kg</h2>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="cal-details">
+                                <h3>🌿 Sprayer Calibration Guidelines:</h3>
+                                <div class="cal-detail-row">
+                                    <span class="cal-detail-label">Dilution Rate:</span>
+                                    <strong id="cal-out-dilution">2.5 grams per Liter</strong>
+                                </div>
+                                <div class="cal-detail-row">
+                                    <span class="cal-detail-label">Sprayer Pressure:</span>
+                                    <strong id="cal-out-pressure">Medium (2.0 to 3.0 Bar)</strong>
+                                </div>
+                                <div class="cal-detail-row">
+                                    <span class="cal-detail-label">Sprayer Nozzle Recommendation:</span>
+                                    <strong id="cal-out-nozzle">Hollow Cone Nozzle (fine droplets)</strong>
+                                </div>
+                                <div class="cal-detail-row">
+                                    <span class="cal-detail-label">Ideal Re-application Cycle:</span>
+                                    <strong id="cal-out-interval" class="text-yellow">7 to 10 days</strong>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Encyclopedia Modal Drawer -->
+    <div class="drawer-overlay" id="encyclopedia-drawer">
+        <div class="drawer">
+            <div class="drawer-header">
+                <h2 id="drawer-title">Tomato Bacterial Spot</h2>
+                <button class="drawer-close" onclick="closeDrawer()"><i data-lucide="x"></i></button>
+            </div>
+            <div class="drawer-body">
+                <div class="drawer-badge-row">
+                    <span class="status-badge" id="drawer-crop">Tomato</span>
+                    <span class="severity-badge" id="drawer-severity">High</span>
+                </div>
+                <div class="drawer-meta font-code">
+                    <p>Pathogen: <span id="drawer-pathogen">Xanthomonas</span></p>
+                    <p>Type: <span id="drawer-type">Bacterial Disease</span></p>
+                </div>
+                <hr>
+                <div class="drawer-section">
+                    <h3>🩺 Primary Symptoms</h3>
+                    <ul class="bullet-list" id="drawer-symptoms"></ul>
+                </div>
+                <div class="drawer-section">
+                    <h3>⚠️ Why it occurred (Causes)</h3>
+                    <ul class="bullet-list" id="drawer-causes"></ul>
+                </div>
+                <div class="drawer-section">
+                    <h3>🛡️ Prevention Strategies</h3>
+                    <ul class="bullet-list" id="drawer-prevention"></ul>
+                </div>
+                <div class="drawer-section">
+                    <h3>💉 Recommended Treatment</h3>
+                    <ul class="bullet-list" id="drawer-treatment"></ul>
+                </div>
+                <div class="tip-banner">
+                    <div class="tip-icon"><i data-lucide="lightbulb"></i></div>
+                    <div class="tip-content">
+                        <strong>Professional Farming Tip:</strong>
+                        <p id="drawer-tip"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- App Footer -->
+    <footer class="app-footer">
+        <p>© 2026 CropGuard AI System. Developed for Modern, Sustainable and Precision Agriculture.</p>
+    </footer>
+
+    <!-- Script -->
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
