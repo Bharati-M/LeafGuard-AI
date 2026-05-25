@@ -1,4 +1,4 @@
-# LeafGuard-AI
+
 # 🌿 LeafGuard AI
 
 AI Powered Plant Leaf Disease Detection System using Deep Learning, Computer Vision, Flask, and Streamlit.
